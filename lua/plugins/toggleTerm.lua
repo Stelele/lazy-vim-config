@@ -1,3 +1,5 @@
+TerminalCount = 1
+
 return {
   {
     "akinsho/toggleterm.nvim",
@@ -7,10 +9,17 @@ return {
       {
         "<leader>tf",
         function()
-          local count = vim.v.count1
-          require("toggleterm").toggle(count, 0, LazyVim.root.get(), "float")
+          require("toggleterm").toggle(TerminalCount, 0, LazyVim.root.get(), "float")
         end,
         desc = "ToggleTerm (float root_dir)",
+      },
+      {
+        "<leader>ta",
+        function()
+          TerminalCount = TerminalCount + 1
+          require("toggleterm").toggle(TerminalCount, 0, LazyVim.root.get(), "float")
+        end,
+        desc = "ToggleTerm (float new terminal)",
       },
       {
         "<leader>th",
